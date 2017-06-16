@@ -10,20 +10,13 @@ var LooksSchema = Schema({
 
 // new Schema   
 var QuestionsSchema = Schema({
-    question: {
-        type: Schema.Types.ObjectId,
-        ref: "Users",
-        Question: String
-    }
+    question: String
 });
 
 // new Schema   
 var ReactionsSchema = Schema({
-    reaction: {
-        type: Schema.Types.ObjectId,
-        ref: "Questions",
-        link: String
-    }
+    reaction: String
+    
 });
 
 // new Schema
@@ -71,9 +64,12 @@ var UserSchema = Schema({
         default: false,
         required: true
     },
-    looks: [
-        LooksSchema
-    ],
+    profile_look: String,
+    looks: [{
+        look: {
+            link: String
+        }
+    }],
     Liked_By_ids: {
         type: String,
     },

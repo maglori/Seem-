@@ -7,9 +7,10 @@ var Child = require("./Child");
 // This is the Main component
 var Main = React.createClass({
   // Here we set a generic set of states associated with our Main Component
-  getInitialState: function() {
+  getInitialState: function (req, res) {
     return {
-      name: "Bob",
+      page: home,
+      name: req.body.first_name,
       age: 64,
       artistry: 94,
       isFuzzy: true,
@@ -17,8 +18,13 @@ var Main = React.createClass({
       "q_80,w_1200/MTIwNjA4NjMzOTU5NTgxMTk2.jpg"
     };
   },
+  handleClickProfile: function () {
+    return {
+      page: profile
+    };
+  },
   // Here we describe our component's render method
-  render: function() {
+  render: function () {
     return (
       <div className="container">
         <div className="row">
